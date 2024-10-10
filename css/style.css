@@ -1,0 +1,93 @@
+*{
+    box-sizing:border-box;
+}
+body{
+    font-family: Arial, Tahoma, sans-serif;
+}
+.splash-screen{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background-color: rgba(3, 169, 244, 0.9);
+    left:0;
+    top:0;
+    z-index:3;
+}
+.splash-screen span{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: #F44336;
+    color: #FFF;
+    font-size:30px;
+    border-radius:6px;
+    text-align:center;
+    padding:15px 25px;
+    cursor: pointer;
+
+
+}
+.info-container{
+    width:1080px;
+    margin:20px auto 0px;
+    padding:20px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size:24px;
+    background-color: #F6F6F6;
+    border: 2px solid #2196f3;
+}
+.memory-blocks-container{
+    width:1100px;
+    margin:20px auto 0px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.memory-blocks-container.no-clicking{
+    pointer-events: none;
+}
+.memory-blocks-container .card-block{
+    flex:1 0 200px;
+    height:200px;
+    transition: transform 0.5s;
+    transform-style:preserve-3d;
+    cursor:pointer;
+    margin: 0 10px 20px;
+    position:relative;
+}
+.memory-blocks-container .card-block .back{
+ transform:rotateY(180deg);
+ background-color: #F6F6F6;
+}
+.memory-blocks-container .card-block .front{
+    background-color: #333;
+    line-height: 200px;
+}
+.memory-blocks-container .card-block .front::before{
+    content:"!";
+    font-size: 140px;
+    color:white;
+    font-weight: bold;
+}
+.memory-blocks-container .card-block .back i{
+    font-size: 140px;
+    margin-top:30px;
+}
+.memory-blocks-container .card-block .face{
+    position: absolute;
+    width:100%;
+    height:100%;
+    text-align: center;
+    border: 5px solid #2196f3;  
+    backface-visibility: hidden;
+}
+.memory-blocks-container .card-block.flipped,
+.memory-blocks-container .card-block.has-match{
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
